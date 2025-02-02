@@ -1,35 +1,40 @@
 import json
 import random as r
 from termcolor import colored as c
-import re
 
 def get_term_open_file():
     """
     Choose term and open correct file
+    https://www.geeksforgeeks.org/read-json-file-using-python/
+    https://www.w3schools.com/python/python_try_except.asp
     """
     while True:
-        print(c("Enter term, or enter 'x' to exit","dark_grey"), end = "")
-        term = input(c(": ","dark_grey")).replace(" ","").title()
+        print(c("\nEnter term, or enter 'x' to exit","dark_grey"), end = "")
+        term = input(c(": ","dark_grey")).title().replace(" ","")
 
         # exit if user enters 'x'
         if term == 'X':
+            print(c("\nGoodbye!\n","blue"))
             break
 
-        
+        try:
+            with open(term + 'flashCards.json') as file:
+                return json.load(file)
+
+        except FileNotFoundError:
+            print(c("\nERROR","red"), end = "")
+            print(": " + term + "flashCards.json not found.", end = " ")
+            print("Please try again.")
 
 
 
 
-# https://www.geeksforgeeks.org/read-json-file-using-python/
-# Open and read the JSON file
-with open('Spring2025flashCards.json') as file:
-    flashCards = json.load(file)
-
-def main():
+            
+def main(flashCards):
     # https://www.geeksforgeeks.org/python-do-while/
     while True:
         # choose a random flash card
-        course = flashCards['CSCE 3550']
+        course = flashCards['CSCE3550']
         module = r.randint(1,1)
         section = 'Module ' + str(module)
         cardNo = r.randint(0,len(course[section])-1)
@@ -73,4 +78,5 @@ def main():
             print(c("\nGoodbye!\n","blue"))
             break
 
-# get_term_open_file()
+ 
+term = get_term_open_file()
