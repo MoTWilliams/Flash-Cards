@@ -1,0 +1,192 @@
+{
+  "CSCE 3550":{
+    "Module 1":[
+      {
+        "Q":"Basic principles of cybersecurity",
+        "A":[
+          "1. Constant improvement",
+          "2. Least privilege: Only giving individuals the minimum necessary access to assets",
+          "3. Defense in depth: layered defense; separate layers of protection with independent security protocols"
+        ],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"NIST Risk Management Framework (RMF) - 6 steps",
+        "A":[
+          "1. Categorize the information system\n  - goals\n  - security risks and requirements",
+          "2. Select security controls (existing and new)",
+          "3. Implement security controls",
+          "4. Assess security controls (testing)",
+          "5. Authorize the information system (approve and deploy)",
+          "6. Monitor security controls/n  - Make changes as necessary"
+        ],
+        "Hint":"For large-scale computer systems",
+        "Notes":""
+      },
+      {
+        "Q":"Proprietor's Risk Management System (PRMF) - 4 steps",
+        "A":[
+          "A. Establish system and security goals\n  - Identify goals, risks, and requirements\n  - perform a risk assessment",
+          "B. Select security controls (new and existing)",
+          "C. Validate the information system\n  - Test\n  - Approve\n  - Deploy",
+          "D. Monitor security controls\n  - keep records of operations and incidents\n  - Make changes to the system if necessary"
+        ],
+        "Hint":"For individuals",
+        "Notes":""
+      },
+      {
+        "Q":"CIA Properties",
+        "A":[
+          "Confidentiality",
+          "Integrity",
+          "Availability"
+        ],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Risk",
+        "A":["The likelihood and potential impact of a cyber attack or data breach"],
+        "Hint":"Two (2) parts",
+        "Notes":""
+      },
+      {
+        "Q":"Threat agent",
+        "A":["Someone who *might* attack the assets"],
+        "Hint":"Ex: thieves and vandals",
+        "Notes":""
+      },
+      {
+        "Q":"Attack",
+        "A":["An attempt by a threat agent to exploit the assets without permission"],
+        "Hint":"Ex: theft, destruction, or damage of equipment or data",
+        "Notes":""
+      },
+      {
+        "Q":"Attacker",
+        "A":["A threat agent who *has* attacked the assets"],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"vulnerability",
+        "A":["A weakness in the boundary that protects the assets from the threat agents"],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Defense",
+        "A":[
+          "A security measure intended to protect the asset"
+        ],
+        "Hint":"Also called safeguard or countermeasure",
+        "Notes":""
+      },
+      {
+        "Q":"Attack vector",
+        "A":["a strategy for exploiting a vulderability to attack"],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Attack surface",
+        "A":["The range of attack vectors faced by a computer system"],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Compromised system",
+        "A":["A system that has recently experienced an attack and is no longer safe to use"],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Botnet",
+        "A":["A collection of compromised systems controlled remotely by an attacker."],
+        "Hint":"May be used for DDOS attacks",
+        "Notes":""
+      },
+      {
+        "Q":"Analyzing the boundary - 4 questions",
+        "A":[
+          "1. What must a threat ageant do to breach a wall?\n  - Generally, a wall is strong enough to not be breached, but entities with valuable and portable assets (i.e., banks) may analyze the risk of attacks through vault walls.",
+          "2. How do we control the doorways to exclude threat ageants?\n  - Implementation",
+          "3. How can a threat agent pass through the doorway despite our protections?\n  - Likelihood of a breach",
+          "4. What do we trust those we let inside to do or not do?\n  - Insider threats"
+        ],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Insider threat",
+        "A":["A threat agent that exists inside the boundary"],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Information security architecture",
+        "A":["A computer system for protecting important information and programs from error-prone and malicious programs by way of boundaries and doorways"],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Security domain",
+        "A":["A digital space that exists within a set of well-defined boundaries, governed by a single entity, and under its own security rules and access controls"],
+        "Hint":"X",
+        "Notes":"Akin to stores in a shopping mall. Each store is its own security domain."
+      },
+      {
+        "Q":"Security plan",
+        "A":[
+          "A security architecture study focusing on requirements and implementation",
+          "- Defines security requirements for identified risks",
+          "- Guides in the construction of a secure system",
+          "- Focuses on requirements and controls, including monitoring protocol"
+        ],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"Three (3) steps for developing a list of risks",
+        "A":[
+          "1. Identify threat agents\n  - Who threatens our assets?",
+          "2. Identify possible types of attack",
+          "3. Build a risk matrix"
+        ],
+        "Hint":"X",
+        "Notes":""
+      },
+      {
+        "Q":"3 major types of cyber attacks",
+        "A":[
+          "Disclosure",
+          "Subversion",
+          "Denial of Service (DoS)"
+        ],
+        "Hint":"Based on CIA properties",
+        "Notes":"Begin section 1.3.2"
+      },
+      {
+        "Q":"3 types of integrity attack",
+        "A":[
+          "System subversion: ",
+          "  - Software has been modified/damaged, injuring system behavior",
+          "Forgery: ",
+          "  - Attacker constructs/modifies a message that directs the computer's mehavior",
+          "Masquerade: "
+        ],
+        "Hint":"X",
+        "Notes":""
+      }
+    ],
+    "Module 2":[
+      {
+        "Q":"",
+        "A":[""],
+        "Hint":"X",
+        "Notes":""
+      }
+    ]
+  }
+}
