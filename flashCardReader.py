@@ -2,6 +2,13 @@ import json
 import random as r
 from termcolor import colored as c
 
+def get_term_from_file():
+    return term
+
+def get_course_crom_file(term):
+    while term:
+        return course
+
 def get_term_from_user():
     """
     Choose term and open correct file
