@@ -2,7 +2,7 @@ import json
 import random as r
 from termcolor import colored as c
 
-def get_term_open_file():
+def get_term_from_user():
     """
     Choose term and open correct file
     https://www.geeksforgeeks.org/read-json-file-using-python/
@@ -15,7 +15,7 @@ def get_term_open_file():
         # exit if user enters 'x'
         if term == 'X':
             print(c("\nGoodbye!\n","blue"))
-            break
+            return None
 
         try:
             with open(term + 'flashCards.json') as file:
@@ -27,14 +27,26 @@ def get_term_open_file():
             print("Please try again.")
 
 
+def get_course_from_user(term):
+    while term:
+        print(c("\nEnter course, or enter 'x' to exit","dark_grey"), end = "")
+        courseNo = input(c(": ","dark_grey")).upper().replace(" ","")
 
+        if courseNo == 'X':
+            print(c("\nGoodbye!\n","blue"))
+            return None
 
+        try:
+            return term[courseNo]
+        except:
+            print(c("\nERROR","red"), end = "")
+            print(": " + courseNo + " does not exist.", end = " ")
+            print("Please try again.")
             
-def main(flashCards):
+def main(course):
     # https://www.geeksforgeeks.org/python-do-while/
-    while True:
+    while course:
         # choose a random flash card
-        course = flashCards['CSCE3550']
         module = r.randint(1,1)
         section = 'Module ' + str(module)
         cardNo = r.randint(0,len(course[section])-1)
@@ -79,4 +91,6 @@ def main(flashCards):
             break
 
  
-term = get_term_open_file()
+term = get_term_from_user()
+course = get_course_from_user(term)
+main(course)
