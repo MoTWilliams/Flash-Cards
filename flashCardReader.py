@@ -105,16 +105,21 @@ def show_cards(course):
         # show the question
         print("\n" + course[section][cardNo]['Q'])
         
-        # check question for hint
-        hasHint = course[section][cardNo]['Hint']
+        # hint feature
+        hasHint = None
         while True:
             print(c("\nPress [ENTER] to show answer","dark_grey"), end = "")
-            if not hasHint == "X":
-                print(c(", or enter 'h' for a hint","dark_grey"), end = "")
-        
-            needHint = input(c(": ","dark_grey")).lower()
-            
+
+            # check if question has a hint
+            try:
+                hasHint = course[section][cardNo]['Hint']
+            except:
+                print(c(":","dark_grey"), end = " ")
+            else:
+                print(c(", or enter 'h' for a hint:","dark_grey"), end = " ")
+
             # check if user needs the hint
+            needHint = input().lower()
             if needHint == 'h':
                 print("\nHINT: " + hasHint, end = " ")
                 input()

@@ -7,8 +7,8 @@
           "1. Constant improvement",
           "2. Least privilege: Only giving individuals the minimum necessary access to assets",
           "3. Defense in depth: layered defense; separate layers of protection with independent security protocols"
-        ],
-        "Hint":"X"
+        ]
+        
       },
       {
         "Q":"NIST Risk Management Framework (RMF) - 6 steps",
@@ -38,8 +38,8 @@
           "Confidentiality",
           "Integrity",
           "Availability"
-        ],
-        "Hint":"X"
+        ]
+        
       },
       {
         "Q":"Risk",
@@ -61,13 +61,13 @@
       },
       {
         "Q":"Attacker",
-        "A":"A threat agent who *has* attacked the assets",
-        "Hint":"X"
+        "A":"A threat agent who *has* attacked the assets"
+        
       },
       {
         "Q":"vulnerability",
-        "A":"A weakness in the boundary that protects the assets from the threat agents",
-        "Hint":"X"
+        "A":"A weakness in the boundary that protects the assets from the threat agents"
+        
       },
       {
         "Q":"Defense",
@@ -76,18 +76,18 @@
       },
       {
         "Q":"Attack vector",
-        "A":"a strategy for exploiting a vulderability to attack",
-        "Hint":"X"
+        "A":"a strategy for exploiting a vulderability to attack"
+        
       },
       {
         "Q":"Attack surface",
-        "A":"The range of attack vectors faced by a computer system",
-        "Hint":"X"
+        "A":"The range of attack vectors faced by a computer system"
+        
       },
       {
         "Q":"Compromised system",
-        "A":"A system that has recently experienced an attack and is no longer safe to use",
-        "Hint":"X"
+        "A":"A system that has recently experienced an attack and is no longer safe to use"
+        
       },
       {
         "Q":"Botnet",
@@ -98,21 +98,21 @@
         "Q":"Analyzing the boundary - 4 questions",
         "A":[
           "1. What must a threat ageant do to breach a wall?",
-          "2. How do we control the doorways to exclude threat ageants?",
+          "2. How do we control the doorways to exclude threat agents?",
           "3. How can a threat agent pass through the doorway despite our protections?\n  - Likelihood of a breach",
           "4. What do we trust those we let inside to do or not do?\n  - Insider threats"
-        ],
-        "Hint":"X"
+        ]
+        
       },
       {
         "Q":"Insider threat",
-        "A":"A threat agent that exists inside the boundary",
-        "Hint":"X"
+        "A":"A threat agent that exists inside the boundary"
+        
       },
       {
         "Q":"Information security architecture",
-        "A":"A computer system for protecting important information and programs from error-prone and malicious programs by way of boundaries and doorways",
-        "Hint":"X"
+        "A":"A computer system for protecting important information and programs from error-prone and malicious programs by way of boundaries and doorways"
+        
       },
       {
         "Q":"Security domain",
@@ -132,8 +132,8 @@
           "- Defines security requirements for identified risks",
           "- Guides in the construction of a secure system",
           "- Focuses on requirements and controls, including monitoring protocol"
-        ],
-        "Hint":"X"
+        ]
+        
       },
       {
         "Q":"Three (3) steps for developing a list of risks",
@@ -141,8 +141,8 @@
           "1. Identify threat agents\n  - Who threatens our assets?",
           "2. Identify possible types of attack",
           "3. Build a risk matrix"
-        ],
-        "Hint":"X"
+        ]
+        
       },
       {
         "Q":"6 General attacks on information",
@@ -152,7 +152,7 @@
           "2. Denial of Service (DoS)",
           [
             "- Use of device, data, software, or service is lost, either temporarily or permanently",
-            "- Examples:\n  = flooding attacks (DDoS)\n  = \"lockout\" attacks\n  = ransomware\n  = fax attacks, which use up paper and ink"
+            "- Examples:\n    = flooding attacks (DDoS)\n    = \"lockout\" attacks\n    = ransomware\n    = fax attacks, which use up paper and ink"
           ],
           "Integrity attacks",
           [
@@ -164,13 +164,13 @@
           [
             "- Confidential information is disclosed"
           ]
-        ],
-        "Hint":"X"
+        ]
+        
       },
       {
         "Q":"Active attack",
-        "A":"Injects new information or modifies existing information",
-        "Hint":"X"
+        "A":"Injects new information or modifies existing information"
+        
       },
       {
         "Q":"Passive attack",
@@ -179,25 +179,25 @@
       },
       {
         "Q":"Attack matrix",
-        "A":"Possible attacks vs. threat agents",
-        "Hint":"X"
+        "A":"Possible attacks vs. threat agents"
+        
       },
       {
         "Q":"Risk matrix",
-        "A":"Assets vs possible attacks",
-        "Hint":"X"
+        "A":"Assets vs possible attacks"
+        
       },
       {
         "Q":"Security policy",
-        "A":"An entity's list of digital security requirements",
-        "Hint":"X"
+        "A":"An entity's list of digital security requirements"
+        
       }
     ],
     "Module 2":[
       {
         "Q":"",
-        "A":[""],
-        "Hint":"X"
+        "A":[""]
+        
       }
     ]
   }

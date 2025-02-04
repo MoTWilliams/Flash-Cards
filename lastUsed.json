@@ -1,4 +1,8 @@
 {
   "term": "Spring2025",
-  "course": "CSCE3550"
+  "course": "CSCE3550",
+  "modules": {
+    "from": 1,
+    "to": 1
+  }
 }
