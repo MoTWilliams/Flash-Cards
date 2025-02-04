@@ -10,6 +10,11 @@
       },
       {
         "Q":"Math 1010 M1 Question",
+        "A":"Math 1010 M1 Answer",
+        "Hint:":"You can also add hints!"
+      },
+      {
+        "Q":"Math 1010 M1 Question",
         "A":[
           "1. Math 1010 M1 Sub-answer 1",
           "2. Math 1010 M1 Sub-answer 2",
