@@ -141,52 +141,43 @@ def get_different_course(TandC,term):
             return course
 
 
-def get_different_modules_range(TandC,course):
+def get_different_modules(TandC,course):
     """
     Opens user-specified module(s) and updates last used file with new module(s)
     """
     while course:
         print(c("\nEnter the first module (Ex:'1'),","dark_grey"), end=" ")
         print(c("or enter 'x' to exit:","dark_grey"), end=" ")
-        firstNo = str(input())
+        firstNo = int(input())
 
         # exit if user enters 'x'
-        if firstNo == 'x':
+        if str(firstNo) == 'x':
+            return None
+
+        print(c("\nEnter the last module","dark_grey"), end=" ")
+        print(c("(Ex:3) or enter 'x' to exit:","dark_grey"), end=" ")
+        lastNo = int(input())
+
+        # exit if user enters 'x'
+        if str(lastNo) == 'x':
             return None
         
-        # retrieve first module
-        first = None
-        try:
-            first = course['Module ' + firstNo]
-        except:
+        last = None
+        if firstNo > lastNo:
             print(c("ERROR:","red"), end=" ")
-            print("Module " + firstNo + " does not exist.", end=" ")
-            print("Please try again.")
+            print("Invalid range. Please try again.")
         else:
-            firstNo = int(firstNo)
-            while first:
-                # retrieve last module and update last opened file
-                print(c("\nEnter the last module","dark_grey"), end=" ")
-                print(c("(Ex:3) or enter 'x' to exit:","dark_grey"), end=" ")
-                lastNo = str(input())
-
-                # exit if user enters 'x'
-                if lastNo == 'x':
-                    return None
-                
-                # retrieve first module and update last opened file
-                try:
-                    last = course['Module ' + lastNo]
-                except:
-                    print(c("ERROR:","red"), end=" ")
-                    print("Module " + lastNo + " does not exist.", end=" ")
-                    print("Please try again.")
-                else:
-                    lastNo = int(lastNo)
-                    TandC.update({"modules":{"from":firstNo,"to":lastNo}})
-                    with open('lastUsed.json', 'w') as file: 
-                        json.dump(TandC, file, indent=2)
-                    return get_modules(TandC,course)
+            try:
+                last = course['Module ' + str(lastNo)]
+            except:
+                print(c("ERROR:","red"), end=" ")
+                print("Module " + str(lastNo) + " does not exist.", end=" ")
+                print("Please try again.")
+            else:
+                TandC.update({"modules":{"from":firstNo,"to":lastNo}})
+                with open('lastUsed.json', 'w') as file: 
+                    json.dump(TandC, file, indent=2)
+                return get_modules(TandC,course)
         
         
 def hint_feature(course):
@@ -278,7 +269,7 @@ def main():
         if choice == "new":
             term = load_different_term_file(last_used)
             course = get_different_course(last_used,term)
-            modules = get_different_modules_range(last_used,course)
+            modules = get_different_modules(last_used,course)
             break
         
         if choice == "":
