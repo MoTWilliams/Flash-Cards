@@ -1,3 +1,4 @@
+# Python flash card reader, by MoTWilliams
 import json
 import random as r
 from termcolor import colored as c
@@ -98,7 +99,7 @@ def show_cards(course):
     # https://www.geeksforgeeks.org/python-do-while/
     while course:
         # choose a random flash card
-        module = r.randint(1,1)
+        module = r.randint(1,2) # working on allowing user to enter a range here
         section = 'Module ' + str(module)
         cardNo = r.randint(0,len(course[section])-1) 
         

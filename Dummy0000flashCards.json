@@ -1,0 +1,97 @@
+{
+  "title":"Flash card data",
+  "Author":"MoTWIlliams",
+  "description":"Format examples for flash card data",
+  "MATH1010":{
+    "Module 1":[
+      {
+        "Q":"Math 1010 M1 Question",
+        "A":"Math 1010 M1 Answer"
+      },
+      {
+        "Q":"Math 1010 M1 Question",
+        "A":[
+          "1. Math 1010 M1 Sub-answer 1",
+          "2. Math 1010 M1 Sub-answer 2",
+          "3. Math 1010 M1 Sub-answer 3"
+        ]
+      },
+      {
+        "Q":"Math 1010 M1 Question",
+        "A":[
+          "1. Math 1010 M1 Sub-answer 1",
+          [
+            "- Math 1010 M1 Point 1",
+            "- Math 1010 M1 Point 2"
+          ],
+          "2. Math 1010 M1 Sub-answer 2",
+          [
+            "- Math 1010 M1 Point 1",
+            "- Math 1010 M1 Point 2",
+            "- Math 1010 M1 Point 3"
+          ]
+        ]
+      }
+    ],
+    "Module 2":[
+      {
+        "Q":"Math 1010 M2 Question",
+        "A":[
+          "1. Math 1010 M2 Sub-answer 1",
+          "2. Math 1010 M2 Sub-answer 2",
+          "3. Math 1010 M2 Sub-answer 3"
+        ]
+      },
+      {
+        "Q":"Math 1010 M2 Question",
+        "A":"Math 1010 M2 Answer"
+      }
+    ]
+  },
+  "CHEM1010":{
+    "Module 1":[
+      {
+        "Q":"Chem 1010 M1 Question",
+        "A":"Chem 1010 M1 Answer"
+      },
+      {
+        "Q":"Chem 1010 M1 Question",
+        "A":[
+          "1. Chem 1010 M1 Sub-answer 1",
+          "2. Chem 1010 M1 Sub-answer 2",
+          "3. Chem 1010 M1 Sub-answer 3"
+        ]
+      },
+      {
+        "Q":"Chem 1010 M1 Question",
+        "A":[
+          "1. Chem 1010 M1 Sub-answer 1",
+          [
+            "- Chem 1010 M1 Point 1",
+            "- Chem 1010 M1 Point 2"
+          ],
+          "2. Chem 1010 M1 Sub-answer 2",
+          [
+            "- Chem 1010 M1 Point 1",
+            "- Chem 1010 M1 Point 2",
+            "- Chem 1010 M1 Point 3"
+          ]
+        ]
+      }
+    ],
+    "Module 2":[
+      {
+        "Q":"Chem 1010 M2 Question",
+        "A":[
+          "1. Chem 1010 M2 Sub-answer 1",
+          "2. Chem 1010 M2 Sub-answer 2",
+          "3. Chem 1010 M2 Sub-answer 3"
+        ]
+      },
+      {
+        "Q":"Chem 1010 M2 Question",
+        "A":"Chem 1010 M2 Answer"
+      }
+    ]
+  }
+}
