@@ -3,9 +3,18 @@ import json
 import random as r
 from termcolor import colored as c
 
-def load_last_used_file():
-    TandC = None
 
+def load_last_used_file():
+    """
+    Gets term and course number for last card set opened. Returns the .json data as a dictionary:
+
+    Ex:
+    {
+      "term":"Spring2025"
+      "
+    }
+    """
+    TandC = None
     try:
         with open('lastUsed.json') as file:
             TandC = json.load(file)
@@ -19,7 +28,6 @@ def load_last_used_file():
     
 
 def load_term_file(TandC):
-    
     cards = None
     try:
         with open(TandC['term'] + 'flashCards.json') as file:
@@ -33,7 +41,6 @@ def load_term_file(TandC):
 
 def load_course(term):
     TandC = load_last_used_file()
-
     while term:
         course = None
         try:
@@ -47,7 +54,6 @@ def load_course(term):
 
 
 def load_different_term_file(TandC):
-    
     while TandC:
         print(c("\nEnter term, or enter 'x' to exit","dark_grey"), end = "")
         term = input(c(": ","dark_grey")).title().replace(" ","")
@@ -56,6 +62,7 @@ def load_different_term_file(TandC):
         if term == 'X':
             return None
 
+        # open card data file and update last opened
         cards = None
         try:
             with open(term + 'flashCards.json') as file:
@@ -93,6 +100,13 @@ def load_different_course(term):
             with open('lastUsed.json', 'w') as file: 
                 json.dump(TandC, file, indent=2)
             return course
+
+
+def get_modules_range(course):
+    pass
+
+def hint_feature(course):
+    pass
 
 
 def show_cards(course):
