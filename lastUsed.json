@@ -1,8 +1,8 @@
 {
-  "term": "Dummy0000",
-  "course": "MATH1010",
+  "term": "Spring2025",
+  "course": "CSCE3550",
   "modules": {
     "from": 1,
-    "to": 1
+    "to": 2
   }
 }

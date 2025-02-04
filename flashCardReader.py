@@ -6,56 +6,92 @@ from termcolor import colored as c
 
 def load_last_used_file():
     """
-    Gets term and course number for last card set opened. Returns the .json data as a dictionary:
-
-    Ex:
-    {
-      "term":"Spring2025"
-      "
-    }
+    Loads file to retrieve term, course, and module range of the last viewed
+    card set; returns it as a dictionary.
     """
     TandC = None
     try:
         with open('lastUsed.json') as file:
             TandC = json.load(file)
     except FileNotFoundError:
-        print(c("\nERROR","red"), end = "")
-        print(": Could not retrieve term and course information.", end = " ")
+        print(c("\nERROR:","red"), end=" ")
+        print("Could not retrieve term and course information.", end=" ")
         print("Please try again.")
         return None
     else:
         return TandC
     
 
+def print_last_used_set(TandC):
+    """
+    Print the term, course, and range of modules for the last viewed card set
+    """
+    # print term and course
+    print("\nLast card set viewed:", end=" ")
+    print(TandC['term'] + ":", end=" ")
+    print(TandC['course'] + " - ", end="")
+    
+    # get modules range
+    first = str(TandC['modules']['from'])
+    last = str(TandC['modules']['to'])
+
+    # last set viewed only included one module
+    if first == last:
+        print("Module " + first)
+        return
+    
+    # print the modules range
+    print("Modules " + first + "-" + last)
+
+
 def load_term_file(TandC):
+    """
+    Opens the last viewed card data file
+    """
     cards = None
     try:
         with open(TandC['term'] + 'flashCards.json') as file:
             cards = json.load(file)
     except FileNotFoundError:
-        print(c("\nERROR","red"), end = "")
-        print(": " + TandC['term'] + "flashCards.json not found.")
+        print(c("\nERROR:","red"), end=" ")
+        print(TandC['term'] + "flashCards.json not found.")
     else:
         return cards
 
 
-def load_course(term):
-    TandC = load_last_used_file()
+def get_course(TandC,term):
+    """
+    Retrieves the last viewed course from the open card data file
+    """
     while term:
         course = None
         try:
             course = term[TandC['course']]
         except:
-            print(c("\nERROR","red"), end = "")
-            print(": " + TandC['course'] + " does not exist.", end = " ")
+            print(c("\nERROR:","red"), end =" ")
+            print(TandC['course'] + " does not exist.", end=" ")
             print("Please try again.")
         else:
             return course
 
 
+def get_modules(TandC,course):
+    """
+    Retrieves module numbers from the last opened file
+    """
+    while course:
+        return {
+            "from":TandC['modules']['from'],
+            "to":TandC['modules']['to']
+        }
+
+
 def load_different_term_file(TandC):
+    """
+    Opens user-specified card data file and updates last used file with new term
+    """
     while TandC:
-        print(c("\nEnter term, or enter 'x' to exit","dark_grey"), end = "")
+        print(c("\nEnter term, or enter 'x' to exit","dark_grey"), end="")
         term = input(c(": ","dark_grey")).title().replace(" ","")
 
         # exit if user enters 'x'
@@ -68,8 +104,8 @@ def load_different_term_file(TandC):
             with open(term + 'flashCards.json') as file:
                 cards = json.load(file)
         except FileNotFoundError:
-            print(c("\nERROR","red"), end = "")
-            print(": " + term + "flashCards.json not found.", end = " ")
+            print(c("\nERROR","red"), end="")
+            print(": " + term + "flashCards.json not found.", end=" ")
             print("Please try again.")
         else:
             TandC.update({"term":term})
@@ -77,23 +113,26 @@ def load_different_term_file(TandC):
                 json.dump(TandC, file, indent=2)
             return cards
 
-def load_different_course(term):
-    TandC = load_last_used_file()
 
+def get_different_course(TandC,term):
+    """
+    Opens user-specified course and updates last used file with new course
+    """
     while term:
-        print(c("\nEnter course, or enter 'x' to exit","dark_grey"), end = "")
-        courseNo = input(c(": ","dark_grey")).upper().replace(" ","")
+        print(c("\nEnter course, or enter 'x' to exit:","dark_grey"), end=" ")
+        courseNo = input().upper().replace(" ","")
 
+        # exit if user enters 'x'
         if courseNo == 'X':
-            print(c("\nGoodbye!\n","blue"))
             return None
 
+        # retrieve course and update last opened file
         course = None
         try:
             course = term[courseNo]
         except:
-            print(c("\nERROR","red"), end = "")
-            print(": " + courseNo + " does not exist.", end = " ")
+            print(c("\nERROR:","red"), end=" ")
+            print(courseNo + " does not exist.", end=" ")
             print("Please try again.")
         else:
             TandC.update({'course':courseNo})
@@ -102,72 +141,117 @@ def load_different_course(term):
             return course
 
 
-def get_modules_range(course):
-    pass
+def get_different_modules_range(TandC,course):
+    """
+    Opens user-specified module(s) and updates last used file with new module(s)
+    """
+    while course:
+        print(c("\nEnter the first module (Ex:'1'),","dark_grey"), end=" ")
+        print(c("or enter 'x' to exit:","dark_grey"), end=" ")
+        firstNo = str(input())
 
+        # exit if user enters 'x'
+        if firstNo == 'x':
+            return None
+        
+        # retrieve first module
+        first = None
+        try:
+            first = course['Module ' + firstNo]
+        except:
+            print(c("ERROR:","red"), end=" ")
+            print("Module " + firstNo + " does not exist.", end=" ")
+            print("Please try again.")
+        else:
+            firstNo = int(firstNo)
+            while first:
+                # retrieve last module and update last opened file
+                print(c("\nEnter the last module","dark_grey"), end=" ")
+                print(c("(Ex:3) or enter 'x' to exit:","dark_grey"), end=" ")
+                lastNo = str(input())
+
+                # exit if user enters 'x'
+                if lastNo == 'x':
+                    return None
+                
+                # retrieve first module and update last opened file
+                try:
+                    last = course['Module ' + lastNo]
+                except:
+                    print(c("ERROR:","red"), end=" ")
+                    print("Module " + lastNo + " does not exist.", end=" ")
+                    print("Please try again.")
+                else:
+                    lastNo = int(lastNo)
+                    TandC.update({"modules":{"from":firstNo,"to":lastNo}})
+                    with open('lastUsed.json', 'w') as file: 
+                        json.dump(TandC, file, indent=2)
+                    return get_modules(TandC,course)
+        
+        
 def hint_feature(course):
     pass
 
 
-def show_cards(course):
+def show_cards(TandC,course,modules):
     # https://www.geeksforgeeks.org/python-do-while/
     while course:
         # choose a random flash card
-        module = r.randint(1,2) # working on allowing user to enter a range here
-        section = 'Module ' + str(module)
-        cardNo = r.randint(0,len(course[section])-1) 
+        moduleNo = r.randint(modules['from'],modules['to']) 
+        module = 'Module ' + str(moduleNo)
+        cardNo = r.randint(0,len(course[module])-1) 
         
         # show the question
-        print("\n" + course[section][cardNo]['Q'])
+        print("\n" + course[module][cardNo]['Q'])
         
         # hint feature
         hasHint = None
         while True:
-            print(c("\nPress [ENTER] to show answer","dark_grey"), end = "")
+            print(c("\nPress [ENTER] to show answer","dark_grey"), end="")
 
             # check if question has a hint
             try:
-                hasHint = course[section][cardNo]['Hint']
+                hasHint = course[module][cardNo]['Hint']
             except:
-                print(c(":","dark_grey"), end = " ")
+                print(c(":","dark_grey"), end=" ")
             else:
-                print(c(", or enter 'h' for a hint:","dark_grey"), end = " ")
+                print(c(", or enter 'h' for a hint:","dark_grey"), end=" ")
 
             # check if user needs the hint
             needHint = input().lower()
             if needHint == 'h':
-                print("\nHINT: " + hasHint, end = " ")
+                print("\nHINT: " + hasHint, end=" ")
                 input()
                 break
             elif needHint == '':
                 print()
                 break
             else:
-                print(c("\nERROR","red") + ": Invalid entry.", end = " ")
+                print(c("\nERROR","red") + ": Invalid entry.", end=" ")
                 print("Did you mean 'h'?", c("Please try again.", "dark_grey"))
         
         # show the answer
-        answers = course[section][cardNo]['A']
+        answers = course[module][cardNo]['A']
 
         if type(answers) == list:
             for answer in answers:
                 if type(answer) == list:
                     for point in answer:
-                        print("  " + point, end = "")
+                        print("  " + point, end="")
                         input()
                 else:
-                    print(answer, end = "")
+                    print(answer, end="")
                     input()
         else:
             print(answers)
 
         # prompt for show next card or exit
-        print(c("\nPress [ENTER] to go to the next","dark_grey"), end = " ")
-        print(c("flash card, or enter 'x' to exit:","dark_grey"), end = " ")
+        print(c("\nPress [ENTER] to go to the next","dark_grey"), end=" ")
+        print(c("flash card, or enter 'x' to exit:","dark_grey"), end=" ")
         choice = input().lower()
         while not (choice == "" or choice == "x"):
-            print(c("Make a valid selection:","dark_grey"), end = " ")
-            print(c("[ENTER] to move on, or 'x'","dark_grey"), end = " ")
+            print(c("Make a valid selection:","dark_grey"), end=" ")
+            print(c("[ENTER] to move on, or 'x'","dark_grey"), end=" ")
             choice = input(c("to exit:","dark_grey")).lower()
 
         if choice == 'x':
@@ -176,15 +260,15 @@ def show_cards(course):
 
 def main():
     last_used = load_last_used_file()
-    print("\nLast card set viewed:", end = " ")
-    print(last_used['term'] + " - " + last_used['course'] + ".") # this line
+    print_last_used_set(last_used)
 
     term = None
     course = None
+    modules = None
     while True:
-        print(c("Press [ENTER] to view this set","dark_grey"), end = " ")
-        print(c("again, enter 'new' to choose a","dark_grey"), end = " ")
-        print(c("different card set, or enter 'x'","dark_grey"), end = " ")
+        print(c("Press [ENTER] to view this set","dark_grey"), end=" ")
+        print(c("again, enter 'new' to choose a","dark_grey"), end=" ")
+        print(c("different card set, or enter 'x'","dark_grey"), end=" ")
         choice = input(c("to exit: ","dark_grey")).lower()
 
         # exit if user enters 'x'
@@ -193,17 +277,19 @@ def main():
 
         if choice == "new":
             term = load_different_term_file(last_used)
-            course = load_different_course(term)
+            course = get_different_course(last_used,term)
+            modules = get_different_modules_range(last_used,course)
             break
         
         if choice == "":
             term = load_term_file(last_used)
-            course = load_course(term)
+            course = get_course(last_used,term)
+            modules = get_modules(last_used,course)
             break
 
         print(c("ERROR","red") + (": Invalid entry. Please try again.\n"))
     
-    show_cards(course)
+    show_cards(last_used,course,modules)
     print(c("\nGoodbye!\n","blue"))        
 
 main()
