@@ -1,7 +1,0 @@
-{
-    "editor.rulers": [80],
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wrappingIndent": "same",
-    "editor.wordWrapColumn": 80,
-    "breadcrumbs.enabled": false
-}
